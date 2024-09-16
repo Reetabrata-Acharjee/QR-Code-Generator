@@ -46,19 +46,10 @@
         color: white;
         cursor: pointer;
       }
-      #logo {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100px;
-        height: auto;
-        margin-bottom: 20px;
-      }
     </style>
   </head>
   <body>
     <div id="body">
-      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="QR Code Generator Logo" id="logo">
       <h1>QR Code</h1>
       <div id="qr">
         <img id="qr-code-img" src="data:image/png;base64,iVBORw0KGg...." alt="QR Code">
