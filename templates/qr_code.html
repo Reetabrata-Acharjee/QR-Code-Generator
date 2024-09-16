@@ -65,8 +65,15 @@
       </div>
       <button id="download-btn">Download</button>
       <footer>
-        <p>This Website Is Created By: <a href="https://www.linkedin.com/in/reetabrata-acharjee-35a2a5241/" target="_blank"><b>Reetabrata Acharjee</b></a></p>
+        <p>This Website Is Created By: <a href="https://www.linkedin.com/in/reetabrata-acharjee-35a2a5241/" target=""><b>Reetabrata Acharjee</b></a></p>
       </footer>
     </div>
   </body>
+  <script>
+    // Get the qr-code-img element
+    const qrCodeImg = document.getElementById('qr-code-img');
+
+    // Set the src attribute of the img element to the base64-encoded QR code
+    qrCodeImg.src = 'data:image/png;base64,{{ qr_code }}';
+  </script>
 </html>
