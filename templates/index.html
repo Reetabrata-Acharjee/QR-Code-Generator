@@ -4,14 +4,15 @@
     <title>QR Code Generator</title>
     <style>
 
-      #body{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        background-color: #C4E0F9;
-      }
+#body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #C4E0F9;
+  padding: 20px; /* add some padding to the body */
+}
 
       #url{
         width: 500px;
@@ -50,16 +51,32 @@
        box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
        background-color: #9BBDF9
      }
+     #logo {
+  position: absolute; /* add this to position the logo absolutely */
+  top: 0; /* set the top position to 0 */
+  left: 0; /* set the left position to 0 */
+  width: 300px; /* adjust the width to your liking */
+  height: 50px; /* maintain the aspect ratio */
+  margin-bottom: 20px; /* add some space between the logo and the form */ 
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2); /* add a subtle shadow */
+}
     </style>
   </head>
   <body>
     <div id="body">
       <h1 style="color: rgba(93, 3, 3, 0.953); text-align: center;">Welcome to my Website Enter your URL and get your QR</h1>
       <h1>QR Code Generator</h1>
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="QR Code Generator Logo" id="logo">
+
       <form action="" method="post" id="frm">
         <input type="text" id="url" placeholder="Enter Your URL Here" name="url" required><br><br><br>
         <button type="submit" id="btn">Generate</button>
-        </form>
+      </form>
+      <footer>
+        <p>This Website Is Created By: <a href="https://www.linkedin.com/in/reetabrata-acharjee-35a2a5241/" target="_blank" ><b>Reetabrata Acharjee</b></a></p>
+      </footer>
     </div>
+    </div>
+
   </body>
 </html>
