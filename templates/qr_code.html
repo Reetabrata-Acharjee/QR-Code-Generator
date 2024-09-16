@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QR Code</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #D2D5DD;
+   }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+   }
+   #qr {
+  width: 385px;
+  height: 385px;
+  margin-bottom: 20px;
+  border: 2px solid #798071; 
+  background-image: none; /* remove this line */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#qr-code-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+ #download-btn{
+       height: 30px;
+       width: 150px;
+       text-align: center;
+       background-color: #999AC6;
+       color: black;
+       font-weight: 600;
+       border-radius: 10%;
+   }
+    #download-btn:hover {
+       background-color: #7A7BC7;
+       color: white; 
+      cursor: pointer; 
+   }
+  </style>
+  <body>
+ <div id="body">
+        <h1>QR Code</h1>
+       <div id="qr">
+          <img id="qr-code-img" src="" alt="QR Code">
+        </div>
+        <button id="download-btn">Download</button>
+    </div>
+    
+
+
+
+    <script>
+      const qrCodeData = '{{ qr_code }}';
+      const qrCodeImg = document.getElementById('qr-code-img');
+      const downloadBtn = document.getElementById('download-btn');
+
+      // Decode the base64-encoded image data
+      const decodedData = atob(qrCodeData);
+      const buffer = new Uint8Array(decodedData.length);
+      for (let i = 0; i < decodedData.length; i++) {
+        buffer[i] = decodedData.charCodeAt(i);
+      }
+      const blob = new Blob([buffer], { type: 'image/png' });
+      const url = URL.createObjectURL(blob);
+
+      // Set the image source to the decoded data
+      qrCodeImg.src = url;
+
+      downloadBtn.addEventListener('click', () => {
+        const qrCodeBlob = new Blob([buffer], { type: 'image/png' });
+        const downloadUrl = URL.createObjectURL(qrCodeBlob);
+        const a = document.createElement('a');
+        a.href = downloadUrl;
+        a.download = 'qr_code.png';
+        a.click();
+      });
+    </script>
+  </body>
+</html>

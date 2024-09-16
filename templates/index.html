@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QR Code Generator</title>
+    <style>
+
+      #body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #C4E0F9;
+      }
+
+      #url{
+        width: 500px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 2px solid black;
+        margin-bottom: 10px;
+      }
+      #btn {
+  text-align: center;
+  background-color: #2EC0F9;
+  width: 100px;
+  height: 50px;
+  color: black;
+  font-weight: 600;
+  border-radius: 10%;
+  transition: background-color 0.3s ease-in-out; 
+}
+
+#btn:hover {
+  background-color: #1BA8E3; 
+  color: white; 
+  cursor: pointer; 
+}
+     #frm{
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       width: 700px;
+       margin-top: 20px;
+       padding: 20px;
+       background-color: white;
+       border-radius: 5px;
+       border: 2px solid #798071;
+       box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+       background-color: #9BBDF9
+     }
+    </style>
+  </head>
+  <body>
+    <div id="body">
+      <h1 style="color: rgba(93, 3, 3, 0.953); text-align: center;">Welcome to my Website Enter your URL and get your QR</h1>
+      <h1>QR Code Generator</h1>
+      <form action="" method="post" id="frm">
+        <input type="text" id="url" placeholder="Enter Your URL Here" name="url" required><br><br><br>
+        <button type="submit" id="btn">Generate</button>
+        </form>
+    </div>
+  </body>
+</html>
